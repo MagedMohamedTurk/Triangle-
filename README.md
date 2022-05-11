@@ -6,6 +6,6 @@ $ ./check_triangle
 to rebuild the binary file:  
 $ make  
 to run tests from /test directory:  
-$ ./test_triangle\b
-to rebuild the binary file:\b
+$ ./test_triangle <br>
+to rebuild the binary file:<br>
 $ make  
