@@ -1,48 +1,8 @@
 // This module will check if the user input of 
 // triangle side lengths can construct a valid triangle.
+#include "check_triangle.h"
 
-#include <stdio.h>
-#include <cs50.h>
-#include <stdbool.h>
-#include <math.h>
-
-
-float *get_sides();
-bool check_triangle(float side[3]);
-const char* classify_side();
-const char* classify_angle(float *side);
-float square(float x);
-float cos_angle(float nearby_side1, float nearby_side2, float opposite_site);
-bool check_obtuse(float x);
-// Determine the ACCURACY.
 const float ACCURACY = 0.0000000001;
-
-int main(void)
-{
-    float *side = get_sides(); // Declare a pointer to the array address returned from the get_sides() function.
-
-    // Validate it can construct a triangle.
-    if (check_triangle(side))
-    {
-        printf("True\n");
-    }
-    else
-    {
-        printf("Lengths (%5f, %5f, %5f) can not construct a triangle!\n", side[0], side[1], side[2]);
-        return 1; // Exit.
-    }
-
-
-    // Classify triangle by sides.
-    printf("%s\n", classify_side(side));
-
-
-    // Classify triangle by angle.
-    printf("%s\n", classify_angle(side));
-
-}
-
-
 float *get_sides() 
     {
         // Prompt the user for the lengths returning them in an array.
@@ -68,7 +28,7 @@ float *get_sides()
 
 bool check_triangle(float *side)
 {
-    // Check triangle condition if any any two lengths is greater than the third.
+    // check triangle condition if any any two lengths is greater than the third.
     if ((side[0]+side[1]) > side[2] && 
         (side[0]+side[2]) > side[1] && 
         (side[1]+side[2]) > side[0])
@@ -128,13 +88,16 @@ const char* classify_angle(float *side)
     }
 
     // IF cosine of any angle is obtuse.
-   if (check_obtuse(cos_alpha) ||
+   else if (check_obtuse(cos_alpha) ||
         check_obtuse(cos_alpha) ||
         check_obtuse(cos_gamma))
    {
        return "Obtuse Triangle";
+   } 
+   else
+   {
+       return "Acute Triangle";
    }
-    
 
     return 0;
 }
@@ -154,8 +117,8 @@ bool check_obtuse(float x)
 // Check angle to be between 90 and 180 by checking 
 // if the cosine of the angle is greater than -1 and more than 0 
 {
-    if ((fabs(x+1)) < ACCURACY ||
-        (fabs(x) > ACCURACY))
+    if (x+1 > ACCURACY &&
+        x < ACCURACY)
         {
             return true;
         }
