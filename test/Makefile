@@ -14,7 +14,7 @@ TARGET = test_triangle
   
 all: $(TARGET) test
   
-$(TARGET): $(TARGET).c
+$(TARGET): $(TARGET).c ../check_triangle.c ../check_triangle.h
 	$(CC) $(CFLAGS)  $(TARGET).c ../check_triangle.c unity.c -o $(TARGET) $(LFLAGS) 
 
 test:

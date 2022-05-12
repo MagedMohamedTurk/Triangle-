@@ -26,7 +26,7 @@ float *get_sides()
 
 
 
-bool check_triangle(float *side)
+bool check_triangle(float side[3])
 {
     // check triangle condition if any any two lengths is greater than the third.
     if ((side[0]+side[1]) > side[2] && 
@@ -43,9 +43,9 @@ bool check_triangle(float *side)
 
 
 
-const char* classify_side(float *side)
+const char* classify_side(float side[3])
 {
-    // TODO
+    // Check for equal two sides or three sides
     if ((side[0] == side[1]) && (side[1] == side[2]))
     {
         return "Equilateral Triangle";
@@ -59,7 +59,7 @@ const char* classify_side(float *side)
 }
 
 
-const char* classify_angle(float *side)
+const char* classify_angle(float side[3])
 {
     // Test if the triangle whether is Acute angle, Right-angled Triangle, Obtuse-angled Triangle or Equiangular Triangle
     // Get angles using the law of cosines.
