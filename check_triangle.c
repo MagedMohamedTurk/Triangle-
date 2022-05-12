@@ -26,7 +26,9 @@ float *get_sides()
 
 
 
-bool check_triangle(float side[3])
+bool check_triangle(float side[3]) // Remember passing array is by reference 
+                                    // We can also pass the array as a pointer  i.e, float side*
+                                    // An array can essentially be presented as a pointer to its zero index
 {
     // check triangle condition if any any two lengths is greater than the third.
     if ((side[0]+side[1]) > side[2] && 
