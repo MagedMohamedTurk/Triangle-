@@ -19,3 +19,4 @@ $(TARGET): $(TARGET).c
 
 test:
 	./test_triangle
+	

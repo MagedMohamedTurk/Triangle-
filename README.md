@@ -5,7 +5,7 @@ to run the program from main directory:
 $ ./check_triangle  
 to rebuild the binary file:  
 $ make  
-to run tests from /test directory:  
+to run tests from "/test/" directory:  
 $ ./test_triangle <br>
 to rebuild the binary file:<br>
 $ make  
